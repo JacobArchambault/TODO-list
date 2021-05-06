@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js">
+    </script>
+</head>
+
+<body ng-app="addList1">
+
+    <div ng-controller="todoCtrl">
+
+        <h2>{{todos.length}} Todo Items</h2>
+
+        <p><input type="text" ng-model="newTodo" />
+            <button ng-click="addJob()">Add Todo Item</button>
+        </p>
+
+        <table cellspacing="10">
+            <tr ng-repeat="($index, todo) in todos">
+                <td ng-bind='todo'> </td>
+                <td> <button ng-click="removeJob($index)"> delete</button> </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        app = angular.module('addList1', []);
+
+        app.controller('todoCtrl', function ($scope) {
+            $scope.todos = ["walk dog", "wash car"];  // initial list items
+            $scope.addJob = function () {
+                $scope.todos.push($scope.newTodo);    // add item to end of array
+            };
+            $scope.removeJob = function ($index) {
+                $scope.todos.splice($index, 1);        // remove 1 item at index
+            };
+        });
+    </script>
+</body>
+
+</html>
