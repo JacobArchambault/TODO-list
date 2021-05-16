@@ -7,7 +7,7 @@
 
 <body ng-app="addList1">
 
-    <div ng-controller="todoCtrl">
+    <main ng-controller="todoCtrl">
 
         <h2>{{todos.length}} Todo Items</h2>
 
@@ -21,7 +21,7 @@
                 <td> <button ng-click="removeJob($index)"> delete</button> </td>
             </tr>
         </table>
-    </div>
+    </main>
 
     <script>
         app = angular.module('addList1', []);
